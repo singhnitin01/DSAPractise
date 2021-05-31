@@ -1,0 +1,20 @@
+int low = 0, high = n-1;
+
+        while(low <= high){
+            int mid = low + (high - low)/2;
+            boolean prev = (mid -1) >= 0;
+            boolean next = (mid +1) < n;
+
+            if(arr[mid] == key)
+                return mid;
+            if(prev && arr[mid-1] ==key)
+                return mid -1;
+            if(next && arr[mid+1] == key)
+                return mid+1;
+
+            if( key > arr[mid]) /// since the element will be on right side after the mi+1 if key is greater
+                low = mid +2;
+            else high = mid -2;
+
+        }
+        return -1;
