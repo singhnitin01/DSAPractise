@@ -12,11 +12,36 @@ public class ViewsOfTree {
         node.right.left = new Node(50);
 
         System.out.println(leftView(node));
+        System.out.println(topView(node));
     }
 
+    // intuition: on every level from top to bottom, the leftmost available node should be shown
+    // for level order we use queue and for each level(i.e. size of queue on that level) we'll print the first node
     public static ArrayList<Integer> leftView(Node root)
     {
         ArrayList<Integer> list = new ArrayList<Integer>();
+        if(root == null)
+            return list;
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+        //Node newLevel = root;
+        while(!queue.isEmpty()){
+
+            int n = queue.size();
+            Node out;
+
+            for(int i=0; i<n; i++){
+                out = queue.remove();
+                if(i==0)
+                    list.add(out.data);
+                if(out.left != null)
+                    queue.add(out.left);
+                if(out.right != null)
+                    queue.add(out.right);
+            }
+        }
+        return list;
+        /*ArrayList<Integer> list = new ArrayList<Integer>();
         if(root == null)
             return list;
         Queue<Node> queue = new LinkedList<>();
@@ -39,9 +64,11 @@ public class ViewsOfTree {
                     newLevel = peek.right;
             }
         }
-        return list;
+        return list;*/
     }
 
+    // intuition: on every level from top to bottom, the rightmost(last) available node should be shown
+    // for level order we use queue and for each level(i.e. size of queue on that level) we'll print the last node
     ArrayList<Integer> rightView(Node node) {
         ArrayList<Integer> list = new ArrayList<Integer>();
         if(node == null)
@@ -73,6 +100,10 @@ public class ViewsOfTree {
         }
     }
 
+
+    // intuition: show the first come and distant node that's already shown
+    // for first come and first shown we can use Queue which will hold the distance from root(0)
+    // and for storing the negative to positive distance we can use TreeMap that stores in natural order of Integer
     static ArrayList<Integer> topView(Node root)
     {
         ArrayList<Integer> res = new ArrayList<Integer>();
@@ -87,6 +118,7 @@ public class ViewsOfTree {
         while(!queue.isEmpty()){
             NodeDistance out = queue.remove();
 
+            // since it's top view so first come first shown will be taken
             if(!dist_value.containsKey(out.distance))
                 dist_value.put(out.distance, out.node.data);
 

@@ -28,6 +28,8 @@ public class TraversalsIterative {
         inorderRecursion(root.right);
     }
 
+    // maintain stack to store node and it's left child
+    // incase it's left child is null, then pop and add it's right child if it's present otherwise pop the stack
     public static void inorderIterative(Node root){
         Stack<Node> stack = new Stack<>();
 
@@ -47,6 +49,8 @@ public class TraversalsIterative {
         }
     }
 
+
+    // intuition: pop stack and first right child (if available) and then left child
     static void preorderIterative(Node root)
     {
         //ArrayList<Integer> list = new ArrayList<Integer>();
@@ -65,6 +69,7 @@ public class TraversalsIterative {
         //return list;
     }
 
+    // intuition: pop only when both of its children are null or last popped is one of its child
     static void postOrderIterative(Node root){
         Stack<Node> stack = new Stack<>();
         stack.push(root);

@@ -5,7 +5,8 @@ public class NthRoot {
     public static void main(String[] args) {
         System.out.println(nthRoot(2,5));
         System.out.println(nthRoot(3,27));
-
+//        2.2360679775010794
+//        3.0000000000000853
     }
 
 
@@ -16,7 +17,7 @@ public class NthRoot {
 
         double guess = Double.MIN_VALUE;
 
-        while(low < high){
+        while(high-low >= epsilon){
             double mid = (low + high) /2;
             guess = Math.pow(mid, n);
             double diff = m - guess ;
@@ -26,6 +27,7 @@ public class NthRoot {
                 low = mid;
             else high = mid;
         }
-        return -1;
+        return low;
     }
 }
+// time complexity is O (n) (power) * O(m  * 10^d) where d is the decimal point precision

@@ -108,7 +108,7 @@ public class MinHeap {
         MinHeap minHeap = new MinHeap();
         //minHeap.items = new int[]{11, 17, 13, 18, 21, 19, 17, 43, 23, 26, 29, 31, 0, 0, 0};
         minHeap.items = new int[]{18, 17, 19, 17, 21, 13, 11, 43, 23, 26, 29, 31, 0, 0, 0};
-        size = 11;
+        size = 11; // items.length -1
         /*System.out.println("Peek of heap is: "+ minHeap.peek());
         minHeap.bfsHeap();*/
 
