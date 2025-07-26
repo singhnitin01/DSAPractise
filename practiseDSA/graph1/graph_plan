@@ -1,0 +1,116 @@
+Pending in code:
+
+- Kosaraju's Algorithm
+
+
+🧭 Best Order of Topics for Learning Graph Data Structure
+🔹 1. Basics of Graphs
+Start by understanding what graphs are.
+
+What is a graph?
+
+Terminology: Vertex (node), Edge, Directed vs. Undirected, Weighted vs. Unweighted
+
+Representation:
+
+Adjacency Matrix
+
+Adjacency List
+
+Edge List
+
+Use cases of graphs
+
+📘 Practice: Draw basic graphs and represent them using adjacency lists and matrices.
+
+🔹 2. Graph Traversal Algorithms
+Foundational for exploring and solving problems on graphs.
+
+Depth-First Search (DFS)
+
+Breadth-First Search (BFS)
+
+Applications: Connectivity, finding components, path finding
+
+📘 Practice problems:
+
+Find all connected components
+
+Shortest path in unweighted graph (using BFS)
+
+🔹 3. Types of Graph Problems
+Cycle Detection
+
+In undirected graphs (DFS + parent)
+
+In directed graphs (DFS + recursion stack or topological sort)
+
+Topological Sorting
+
+DFS method
+
+Kahn’s algorithm (BFS based)
+
+🔹 4. Shortest Path Algorithms
+These are used in weighted graphs.
+
+Dijkstra’s Algorithm
+
+Bellman-Ford Algorithm
+
+Floyd-Warshall Algorithm (all-pairs shortest path)
+
+📘 Practice: Minimum time to reach a node, shortest distance in a weighted graph
+
+🔹 5. Minimum Spanning Tree (MST)
+Understand how to connect all nodes with the minimal total edge weight.
+
+Prim’s Algorithm
+
+Kruskal’s Algorithm (learn Disjoint Set Union / Union-Find first)
+
+📘 Practice: Find MST, second best MST
+
+🔹 6. Advanced Graph Concepts
+Disjoint Set Union (DSU) / Union-Find
+
+Tarjan’s Algorithm (for bridges and articulation points)
+
+Kosaraju’s Algorithm / Tarjan’s SCC (for strongly connected components)
+
+Topological Sorting in real problems
+
+🔹 7. Special Graph Problems
+Bipartite Graphs
+
+Check using BFS or DFS
+
+Applications: Matching problems
+
+Graph Coloring
+
+Network Flow
+
+Ford-Fulkerson Algorithm
+
+Edmonds-Karp Algorithm
+
+🔹 8. Practice Problem Sets
+At this point, reinforce knowledge via problem-solving:
+
+Leetcode Graph Tag
+
+HackerRank / Codeforces / CSES Graph problems
+
+Topic-wise: Trees as graphs, Dynamic Graphs, Grid-based graphs (like mazes)
+
+🧠 Bonus Tips
+Learn to visualize graphs: It helps debug logic.
+
+Master recursion and queues (used in DFS and BFS respectively).
+
+Understand complexity: V (vertices), E (edges) - used in time complexity.
+
+Revisit trees if not already done: Trees are a subset of graphs.
+
+Would you like me to create a study plan or give problems for each topic?
