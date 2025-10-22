@@ -112,6 +112,13 @@ public class CycleInDirectedGraph {
             }
         }
         recurStack[source] = false;
+        /*Why Setting to False Matters
+        Suppose you start journey from one junction and
+        If you don't pick up your breadcrumb (set to false) as you leave, the next time you visit that
+        junction from another route, you'll falsely think it's still part of your path,
+        and incorrectly detect a cycle.*/
+
+
         return false;
     }
 }

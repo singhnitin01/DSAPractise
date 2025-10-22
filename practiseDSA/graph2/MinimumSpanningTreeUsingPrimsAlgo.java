@@ -62,7 +62,8 @@ public class MinimumSpanningTreeUsingPrimsAlgo {
         boolean[] visited = new boolean[adj.size()];
         PriorityQueue<Pair> pqueue = new PriorityQueue<>((a, b) -> Integer.compare(a.distance, b.distance));
         // a should come before b if a.distance < b.distance
-        pqueue.add(new Pair(0, 0)); //enqueue node 0 with distance 0 since it's first node
+        pqueue.add(new Pair(0, 0)); //enqueue node 0 with distance 0 since it's first node;
+        // Pair contains destination node and weight to reach it.
         int sumOfWeight = 0;
 
         while (!pqueue.isEmpty()) {

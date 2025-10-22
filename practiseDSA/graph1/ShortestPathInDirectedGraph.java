@@ -78,14 +78,13 @@ public class ShortestPathInDirectedGraph {
         dist.set(source, 0);
         ArrayList<Integer> topoSort = getTopologicalSort(adjList);
 
-        for(int i = 0; i < topoSort.size(); i++) {
-            int u = topoSort.get(i);
+        for (int u : topoSort) {
             //if the distance to u from source is max which means no path to u from source, then we skip.
-            if(dist.get(u) != Integer.MAX_VALUE) {
-                for(AdjacencyNode node : adjList.get(u)) {
+            if (dist.get(u) != Integer.MAX_VALUE) {
+                for (AdjacencyNode node : adjList.get(u)) {
                     int v = node.vertex;
                     int w = node.weight;
-                    if(dist.get(u) + w < dist.get(v)) {
+                    if (dist.get(u) + w < dist.get(v)) {
                         dist.set(v, dist.get(u) + w);
                     }
                 }

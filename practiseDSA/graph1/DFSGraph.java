@@ -65,6 +65,13 @@ class DFSTraversal {
         }
     }
 
+    //https://www.geeksforgeeks.org/problems/depth-first-traversal-for-a-graph/1
+    //Check my gfg solution in submission using stack
+
+
+    //Here we mark the node as visited only once popped because there are chances if we mark it as visited when we push
+    // that we won't push to stack if it's visited. That way if the node should have been reached via depth won't get reached
+    // as it was not allowed to push on to stack.
     public ArrayList<Integer> dfsUsingStack(List<List<Integer>> adjList) {
         ArrayList<Integer> dfsTraversedList = new ArrayList<>(adjList.size());
         boolean[] visited = new boolean[adjList.size()];
@@ -85,6 +92,7 @@ class DFSTraversal {
             for(int i = adjList.get(popped).size() - 1; i >= 0; i--) {
                 int vertex = adjList.get(popped).get(i);
                 if(visited[vertex] == false) {
+                    //NOTE: we don't mark the vertex as visited since it could get visited first from other path in DFS.
                     stack.push(vertex);
                 }
             }

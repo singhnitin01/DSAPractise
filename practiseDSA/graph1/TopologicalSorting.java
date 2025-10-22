@@ -99,6 +99,8 @@ public class TopologicalSorting {
                 recursiveDFS(adjList, vertex, visited, stack);
             }
         }
+        //pushing at the end so that all the depths are at the top of the stack and
+        // initial verterx are at the bottom hence LIFO gives us topoSorted order
         stack.push(src);
     }
 

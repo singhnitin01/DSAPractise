@@ -13,6 +13,16 @@ import java.util.PriorityQueue;
 /*
 * For an undirected weighted graph, Djikstra's algorithm helps us find the shortest path from source vertex to
 * all the vertex.
+* We have an adjacency list List<List<int[]>> adjList where int[] array is destination node and weight
+* And we're given source vertex src, we need to find the shortest path from this src for all the vertex if it's reachable.
+*
+* Intuition: We start with src with 0 distance, add it to Priority Queue (min-heap), and we add all the adjacent vertex-distance pair
+* if the distance[vertex] is getting relaxed kind of following a greedy approach.
+* Now we poll the minimum weight vertex, proceed with same relaxation and adding to pole approach.
+*
+*
+* This doesn't work for negative weight edge as it will go into infinite loop as it will keep on relaxing
+* Time Complexity: O ( (V + E ) * logV )
 * */
 public class DjikstraForShortestPath {
 
@@ -47,7 +57,6 @@ public class DjikstraForShortestPath {
     }
 
     public static void main(String[] args) throws IOException {
-        ShortestPathInDirectedGraph obj = new ShortestPathInDirectedGraph();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.print("Input #of test cases: ");
         int testCases = Integer.parseInt(br.readLine().trim());
@@ -80,12 +89,13 @@ public class DjikstraForShortestPath {
 
     public static int[] shortestDistanceUsingDjikstras(List<List<int[]>> adjList, int src) {
         int[] distance = new int[adjList.size()];
-        PriorityQueue<Pair> pqueue = new PriorityQueue<>((a, b) -> Integer.compare(a.dist, b.dist));
+        PriorityQueue<Pair> pqueue = getPairs();
 
         for(int i = 0; i < adjList.size(); i++) {
             distance[i] = Integer.MAX_VALUE;
         }
 
+        //here too pair contains destination and weight to reach their from current node
         pqueue.add(new Pair(src, 0));
         distance[src] = 0;
 
@@ -100,6 +110,11 @@ public class DjikstraForShortestPath {
             }
         }
         return distance;
+    }
+
+    private static PriorityQueue<Pair> getPairs() {
+        PriorityQueue<Pair> pqueue = new PriorityQueue<>((a, b) -> Integer.compare(a.dist, b.dist));
+        return pqueue;
     }
 }
 
